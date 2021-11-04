@@ -57,7 +57,7 @@ public class InputPlane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             Ray ray = maincam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity))
@@ -82,6 +82,7 @@ public class InputPlane : MonoBehaviour
                     ICommand command = new PlaceCubeCommand(hitInfo.point, c, singleCubePrefab);
                     CommandInvoker.AddCopmmand(command);
                 }
+
                 //CommandInvoker.AddCopmmand(command);
             }
         }
