@@ -137,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3151495995923433051}
   m_Layer: 0
-  m_Name: SpacePart
+  m_Name: SpacePartPrefab
   m_TagString: SpacePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

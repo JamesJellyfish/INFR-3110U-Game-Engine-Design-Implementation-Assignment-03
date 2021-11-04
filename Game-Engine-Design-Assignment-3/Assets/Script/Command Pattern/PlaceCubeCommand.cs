@@ -24,4 +24,11 @@ public class PlaceCubeCommand : ICommand
     {
         CubePlacer.RemoveCube(position, color);
     }
+
+    // Lab 7 Game Engine Dirty Flag
+    public override string ToString()
+    {
+        return "PlaceSpaceParts:\t" + position.x + ":" + position.y + ":" + position.z + "\t"
+        + color.r + ":" + color.g + ":" + color.b;
+    }
 }

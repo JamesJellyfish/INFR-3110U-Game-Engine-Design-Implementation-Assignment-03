@@ -21,6 +21,9 @@ public class Score : MonoBehaviour
         {
             Debug.Log("Exit game!");
             Application.Quit();
+            
+            //SceneManager.LoadScene("SampleScene");
+            
         }
     }
 
@@ -32,6 +35,7 @@ public class Score : MonoBehaviour
             GameObject.Destroy(collision.gameObject);
             score++;
             RemainingSpaceParts.SpaceParts -= 1;
+            
         }
 
     }

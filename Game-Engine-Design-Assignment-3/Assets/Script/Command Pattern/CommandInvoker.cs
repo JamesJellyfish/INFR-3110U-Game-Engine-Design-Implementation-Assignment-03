@@ -9,10 +9,16 @@ public class CommandInvoker : MonoBehaviour
     static List<ICommand> commandHistory;
     static int counter;
 
+    // Lab 7 Game Engine Dirty Flag
+    private bool dirty_;
+
     private void Awake() 
     {
         commandBuffer = new Queue<ICommand>();
         commandHistory = new List<ICommand>();
+
+        // Lab 7 Game Engine Dirty Flag
+        dirty_ = false;
     }
 
     public static void AddCopmmand(ICommand command)
@@ -58,5 +64,27 @@ public class CommandInvoker : MonoBehaviour
                 }
             }
         }
+
+        // Lab 7 Game Engine Dirty Flag
+        if (dirty_)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (ICommand c in commandHistory)
+            {
+                lines.Add(c.ToString());
+            }
+
+            System.IO.File.WriteAllLines(Application.dataPath + "/logfile.txt", lines);
+
+            dirty_ = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            dirty_ = true;
+        }
     }
+
+
 }

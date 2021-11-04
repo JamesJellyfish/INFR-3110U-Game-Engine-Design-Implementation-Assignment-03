@@ -18,5 +18,9 @@ public class RemainingSpaceParts : MonoBehaviour
     void Update()
     {
         spaceParts.text = "Space Parts Remaining: " + SpaceParts;
+
+        
     }
+
+
 }

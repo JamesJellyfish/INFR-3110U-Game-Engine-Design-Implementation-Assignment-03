@@ -11,11 +11,11 @@ public class InputPlane : MonoBehaviour
     Camera maincam;
     RaycastHit hitInfo;
     public Transform CubePrefab;
-    public Transform CylinderPrefab;
-    public Transform singleCubePrefab;
+    public Transform PlantsPrefab;
+    public Transform SpacePartPrefab;
     public Button spawnButton;
-    public Button cylinderButton;
-    public Button cubeButton;
+    public Button PlantsButton;
+    public Button SpacePartButton;
     public int press = 1;//spawner
 
     // Start is called before the first frame update
@@ -29,26 +29,26 @@ public class InputPlane : MonoBehaviour
         Button spawnBut = spawnButton.GetComponent<Button>();
         spawnBut.onClick.AddListener(clickCheckSpawn);
 
-        Button cylinderBut = cylinderButton.GetComponent<Button>();
-        cylinderBut.onClick.AddListener(clickCheckCylinder);
+        Button cylinderBut = PlantsButton.GetComponent<Button>();
+        cylinderBut.onClick.AddListener(clickCheckPlants);
 
-        Button cubeBut = cubeButton.GetComponent<Button>();
-        cubeBut.onClick.AddListener(clickCheckCube);
+        Button cubeBut = SpacePartButton.GetComponent<Button>();
+        cubeBut.onClick.AddListener(clickCheckSpacePart);
     }
 
     void clickCheckSpawn()
     {
         Debug.Log("You have clicked the button!");
-        press = 2;
-    }
-
-    void clickCheckCylinder()
-    {
-        Debug.Log("You have clicked the button!");
         press = 1;
     }
 
-    void clickCheckCube()
+    void clickCheckPlants()
+    {
+        Debug.Log("You have clicked the button!");
+        press = 2;
+    }
+
+    void clickCheckSpacePart()
     {
         Debug.Log("You have clicked the button!");
         press = 3;
@@ -73,13 +73,13 @@ public class InputPlane : MonoBehaviour
 
                 if (press == 2)
                 {
-                    ICommand command = new PlaceCubeCommand(hitInfo.point, c, CylinderPrefab);
+                    ICommand command = new PlaceCubeCommand(hitInfo.point, c, PlantsPrefab);
                     CommandInvoker.AddCopmmand(command);
                 }
 
                 if (press == 3)
                 {
-                    ICommand command = new PlaceCubeCommand(hitInfo.point, c, singleCubePrefab);
+                    ICommand command = new PlaceCubeCommand(hitInfo.point, c, SpacePartPrefab);
                     CommandInvoker.AddCopmmand(command);
                 }
 
